@@ -26,7 +26,7 @@ services:
       - WIKI_LANG=${WIKI_LANG}
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.mediawiki.rule=Host(`wiki.katronic.de`)"
+      - "traefik.http.routers.mediawiki.rule=Host(`wiki.yourdomain.local`)"
       - "traefik.http.routers.mediawiki.entrypoints=websecure"
       - "traefik.http.routers.mediawiki.tls.certresolver=mytlschallenge"
 
