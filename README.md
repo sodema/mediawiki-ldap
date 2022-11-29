@@ -9,8 +9,9 @@ I had to install mediawiki for multiple customers and got frustrated fiddling wi
 - A docker-compose file to run directly
 - integrated LDAPAuthentication2, LDAPAuthorization, LDAPGroups, LDAPProvider, LDAPSyncAll, LDAPUserInfo, PluggableAuth, Auth_remoteuser from official Mediawiki git
 - All LDAP related settings are handled via .env file
+- Custom LocalSettings.LDAP.php which includes all the tweaks for connecting to LDAP
 - One-Klick installer / doensn't use the web based installation procedure
-- persistent volumes
+- persistent volumes, so you can edit LocalSettings.php & LocalSettings.LDAP.php
 - 
 
 ## Usage
@@ -27,7 +28,6 @@ docker logs -f mediawiki-db
 docker logs -f mediawiki-app
 ./run_install.sh
 ```
-
 Instead of building yourself you can also just `docker pull sodema/mediawiki-ldap:0.1`
 
 Copy example.env to .env and set your Variables  
