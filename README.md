@@ -30,9 +30,6 @@ docker logs -f mediawiki-app
 ```
 Instead of building yourself you can also just `docker pull sodema/mediawiki-ldap:latest`
 
-Copy example.env to .env and set your Variables  
-
-Edit docker-compose.yml to fit your needs > Start Stack & Check with docker logs if everything is up > run ./run_install.sh > connect to your Wiki URL > Login with LDAP
 
 ## Environment Variables
 
