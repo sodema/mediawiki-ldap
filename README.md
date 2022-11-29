@@ -39,23 +39,23 @@ Edit docker-compose.yml to fit your needs > Start Stack & Check with docker logs
 These are the variables that need to be set:
 
 ```
-LDAP_BASE=dc=yourdomain,dc=local
-LDAP_SERVER_NAME=ldap.yourdomain.local
-LDAP_SERVER_PORT=9636
-LDAP_DOMAINNAME=yourdomain.local
-LDAP_ENCTYPE=ssl
-LDAP_USER_ATTR=uid
-LDAP_BIND_USER="uid=readonly,cn=users,dc=yourdomain,dc=local"
-LDAP_BIND_PASS="SecretBindPassword"
-DB_HOST=mediawiki-db
-DB_PORT=3306
-DB_NAME=mediawiki
-DB_USER=mediawiki
-DB_PASS=SecretDBPass
-WIKI_NAME=Yourdomain_Wiki
-WIKI_ADMIN=Admin
-WIKI_ADMIN_PASS=ChangeMe2022!
-WIKI_URL=https://wiki.yourdomain.local
-WIKI_LANG=de
+LDAP_BASE=dc=yourdomain,dc=local                                  # BASE DN
+LDAP_SERVER_NAME=ldap.yourdomain.local                            # FQDN of your LDAP server
+LDAP_SERVER_PORT=9636                                             # Port of your LDAP server
+LDAP_DOMAINNAME=yourdomain.local                                  # Name of your domain
+LDAP_ENCTYPE=ssl                                                  # Encryption type 'ldapi', 'ssl', 'tls', or 'clear'
+LDAP_USER_ATTR=uid                                                # Attribute to identify user 'uid' or 'cn'
+LDAP_BIND_USER="uid=readonly,cn=users,dc=yourdomain,dc=local"     # User to bind to LDAP
+LDAP_BIND_PASS="SecretBindPassword"                               # Bind Password
+DB_HOST=mediawiki-db                                              # Hostname of DB server
+DB_PORT=3306                                                      # DB server Port
+DB_NAME=mediawiki                                                 # Name of your Wiki DB
+DB_USER=mediawiki                                                 # DB User
+DB_PASS=SecretDBPass                                              # DB Password
+WIKI_NAME=Yourdomain_Wiki                                         # Name of your wiki
+WIKI_ADMIN=Admin                                                  # Username of local admin (local login must be enabled first)
+WIKI_ADMIN_PASS=ChangeMe2022!                                     # Password for local admin
+WIKI_URL=https://wiki.yourdomain.local                            # URL and Protocol where your Wiki sits (if behind reverse proxy choose https)
+WIKI_LANG=de                                                      # Language for your wiki
 
 ```
