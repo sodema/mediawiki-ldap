@@ -28,7 +28,7 @@ docker logs -f mediawiki-db
 docker logs -f mediawiki-app
 ./run_install.sh
 ```
-Instead of building yourself you can also just `docker pull sodema/mediawiki-ldap:0.1`
+Instead of building yourself you can also just `docker pull sodema/mediawiki-ldap:latest`
 
 Copy example.env to .env and set your Variables  
 
