@@ -34,6 +34,8 @@ RUN touch '/log/mediawiki/LDAPGroups.log'
 RUN touch '/log/mediawiki/LDAPUserInfo.log'
 RUN touch '/log/mediawiki/LDAPProvider.log' 
 RUN touch '/log/mediawiki/PluggableAuth.log' 
+RUN touch '/log/mediawiki/LDAPSyncAll.log'
+RUN touch '/log/mediawiki/Auth_remoteuser.log'
 RUN touch '/log/mediawiki/ldap.log' 
 RUN touch '/log/mediawiki/mw_debug.log'
 
