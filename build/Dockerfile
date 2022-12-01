@@ -16,7 +16,7 @@ RUN git clone --branch REL1_35 https://github.com/wikimedia/mediawiki-extensions
 RUN git clone --branch REL1_35 https://github.com/wikimedia/mediawiki-extensions-LDAPUserInfo.git /var/www/html/extensions/LDAPUserInfo
 RUN git clone --branch REL1_35 https://github.com/wikimedia/mediawiki-extensions-PluggableAuth.git /var/www/html/extensions/PluggableAuth
 RUN git clone --branch REL1_35 https://github.com/wikimedia/mediawiki-extensions-Auth_remoteuser.git /var/www/html/extensions/Auth_remoteuser
-RUN git clone --branch REL1_35 https://github.com/wikimedia/mediawiki-extensions-TemplateData.git /var/www/html/extensions/TemplateData
+
 
 
 

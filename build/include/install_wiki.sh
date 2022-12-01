@@ -3,13 +3,16 @@
 php maintenance/install.php --dbname=$DB_NAME --dbserver=$DB_HOST --installdbuser=$DB_USER --installdbpass=$DB_PASS --dbuser=$DB_USER --dbpass=$DB_PASS --server=$WIKI_URL --scriptpath=$WIKI_PATH --lang=$WIKI_LANG --pass=$WIKI_ADMIN_PASS $WIKI_NAME $WIKI_ADMIN
 
 
-
 for i in /opt/mediawiki/settings.d/*
 do
-  echo 'require_once "$IP/$(basename $i)";' >> /var/www/html/LocalSettings.php
+  ext=$(basename $i)
+  base='require_once "$IP/settings.d/'
+  end='";'
+  echo $base$ext$end >> /var/www/html/LocalSettings.php
   cp $i /var/www/html/settings.d/
-  echo "$(basename $i) activated"
+  echo "$ext activated"
 done
+
 
 sed -i "s/LDAP_DOMAINNAME/$LDAP_DOMAINNAME/g" /var/www/html/settings.d/LocalSettings.LDAP.php
 sed -i "s/LDAP_SERVER_NAME/$LDAP_SERVER_NAME/g" /var/www/html/settings.d/LocalSettings.LDAP.php
