@@ -16,8 +16,8 @@ RUN git clone --branch REL1_35 https://github.com/wikimedia/mediawiki-extensions
 RUN git clone --branch REL1_35 https://github.com/wikimedia/mediawiki-extensions-LDAPUserInfo.git /var/www/html/extensions/LDAPUserInfo
 RUN git clone --branch REL1_35 https://github.com/wikimedia/mediawiki-extensions-PluggableAuth.git /var/www/html/extensions/PluggableAuth
 RUN git clone --branch REL1_35 https://github.com/wikimedia/mediawiki-extensions-Auth_remoteuser.git /var/www/html/extensions/Auth_remoteuser
+RUN git clone --branch REL1_35 https://github.com/wikimedia/mediawiki-extensions-TemplateData.git /var/www/html/extensions/TemplateData
 
-RUN if test -f /var/www/html/LocalSettings.php; then echo 'require_once "$IP/LocalSettings.LDAP.php";' >> /var/www/html/LocalSettings.php;fi
 
 
 RUN set -eux; \
@@ -45,6 +45,9 @@ RUN set -eux; \
         mkdir -p /opt/mediawiki; \
         chown -R www-data:www-data /log/mediawiki
 
-ADD include/LocalSettings.LDAP.php /opt/mediawiki
+RUN set -eux; \
+        mkdir -p /var/www/html/settings.d;
+
+ADD include/settings.d /opt/mediawiki/settings.d/
 ADD include/install_wiki.sh /opt/mediawiki/
 RUN chmod +x /opt/mediawiki/install_wiki.sh
