@@ -1,3 +1,4 @@
+
 FROM mediawiki:1.35.8
 MAINTAINER david.martin@sodema.de
 
@@ -16,6 +17,7 @@ RUN git clone --branch REL1_35 https://github.com/wikimedia/mediawiki-extensions
 RUN git clone --branch REL1_35 https://github.com/wikimedia/mediawiki-extensions-LDAPUserInfo.git /var/www/html/extensions/LDAPUserInfo
 RUN git clone --branch REL1_35 https://github.com/wikimedia/mediawiki-extensions-PluggableAuth.git /var/www/html/extensions/PluggableAuth
 RUN git clone --branch REL1_35 https://github.com/wikimedia/mediawiki-extensions-Auth_remoteuser.git /var/www/html/extensions/Auth_remoteuser
+RUN git clone --branch REL1_35 https://github.com/wikimedia/mediawiki-extensions-TemplateStyles.git /var/www/html/extensions/TemplateStyles
 
 
 
@@ -50,4 +52,6 @@ RUN set -eux; \
 
 ADD include/settings.d /opt/mediawiki/settings.d/
 ADD include/install_wiki.sh /opt/mediawiki/
+ADD include/enable_debug.sh /opt/mediawiki
+ADD include/disable_debug.sh /opt/mediawiki
 RUN chmod +x /opt/mediawiki/install_wiki.sh
